@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import CreatePage from "./pages/CreatePage/CreatePage";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import './styles/button.css';
+import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
+import {useEffect, useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [storage, setStorage] = useState([]);
+
+    function fetchCases() {
+        setStorage(JSON.parse(localStorage.getItem('cases')))
+    }
+
+    const createItem = (item) => {
+        let newStorage = storage;
+        newStorage.push(item);
+        setStorage(newStorage);
+        localStorage.setItem('cases', JSON.stringify(storage))
+    }
+
+    const updateItem = (item) => {
+        let newStorage = storage;
+        newStorage[item.key] = {
+            name: item.name,
+            description: item.description,
+        }
+        setStorage(newStorage);
+        localStorage.setItem('cases', JSON.stringify(storage));
+        fetchCases()
+    }
+
+    useEffect(() => {
+        if (!localStorage.getItem('cases')) {
+            localStorage.setItem('cases', JSON.stringify([]))
+        }
+        fetchCases()
+    }, [])
+
+    return (
+        <div className="App">
+            <BrowserRouter>
+                <HeaderComponent/>
+                <Routes>
+                    <Route path='/' element={<HomePage storage={storage} update={updateItem} />}/>
+                    <Route path='/create' element={<CreatePage createItem={createItem}/>}/>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;

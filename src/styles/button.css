@@ -1,0 +1,26 @@
+.button {
+    max-width: fit-content;
+    padding: 10px 35px;
+    text-decoration: none;
+    color: #1a1a1a;
+    cursor: pointer;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 3px;
+    transition: 250ms ease-in box-shadow;
+}
+.button--add {
+    border-color: darkgreen;
+    color: white;
+    background: darkgreen;
+}
+.button--add:hover {
+    box-shadow: 0 0 8px 5px rgba(0, 100, 0, 0.2);
+}
+.button--edit {
+    border-color: dodgerblue;
+    color: white;
+    background: dodgerblue;
+}
+.button--edit:hover {
+    box-shadow: 0 0 8px 5px rgba(30, 144, 255, 0.2);
+}

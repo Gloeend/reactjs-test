@@ -1,0 +1,23 @@
+.create-form {
+    padding: 20px 50px;
+}
+.create-form__content {
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+}
+.create-form__content input {
+    margin-bottom: 10px;
+}
+.create-form__content button {
+    margin-top: 15px;
+}
+.create-form__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.create-form__label {
+    font-size: 16px;
+    font-weight: bold;
+}

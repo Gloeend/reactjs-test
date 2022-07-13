@@ -1,0 +1,9 @@
+.input {
+    padding: 10px 20px;
+    font-size: 18px;
+    outline: none;
+    max-width: 320px;
+}
+.input--textarea {
+    resize: none;
+}

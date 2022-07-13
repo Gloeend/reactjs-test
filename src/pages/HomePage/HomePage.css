@@ -1,0 +1,23 @@
+.home {
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+.home__content {
+    padding: 20px 50px;
+}
+.home__content {
+    width: calc(100% - 100px);
+    display: flex;
+    flex-flow: column;
+}
+.home__items {
+    margin-top: 50px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    align-items: center;
+}
