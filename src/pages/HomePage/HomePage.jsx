@@ -5,14 +5,8 @@ import ModalComponent from "../../components/ModalComponent/ModalComponent";
 
 const HomePage = (props) => {
     const [visible, setVisible] = useState(false)
-    const [modalItem, setModalItem] = useState({
-        key: '',
-        name: '',
-        description: '',
-    })
 
-    function openModal(key) {
-        setModalItem({...props.storage[key], key: key})
+    function openModal() {
         setVisible(true)
     }
 
@@ -21,16 +15,15 @@ const HomePage = (props) => {
             item={item}
             key={key.toString()}
             id={key.toString()}
-            openModal={openModal}
-
         />
     );
 
 
     return (
         <div className="home">
-            <ModalComponent visible={visible} setVisible={setVisible} modalItem={modalItem} update={props.update} />
+            <ModalComponent visible={visible} setVisible={setVisible} create={props.create} />
             <div className="home__content">
+                <button className="button button--add" onClick={openModal}>Создать</button>
                 <div className="home__items">
                     {listItems}
                 </div>

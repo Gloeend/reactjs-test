@@ -9,7 +9,6 @@ const HeaderComponent = () => {
                 Блог
             </div>
             <Link className="button button--edit" to="/">Главная</Link>
-            <Link className="button button--add" to="/create">Создать</Link>
         </div>
     );
 };

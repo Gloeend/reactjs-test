@@ -1,29 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import cl from "./ModalComponent.module.css";
 import "../../styles/button.css";
 import "../../styles/input.css";
-import "../../pages/CreatePage/CreatePage.css";
+import "../../styles/create-form.css";
 
 const ModalComponent = (props) => {
     const rootClasses = [cl.modal];
     if (props.visible) rootClasses.push(cl.active)
     const [form, setForm] = useState({
-        key: props.modalItem.key,
-        name: props.modalItem.name,
-        description: props.modalItem.description,
+        name: '',
+        description: '',
     })
-
-    useEffect(() => {
-        setForm({
-            key: props.modalItem.key,
-            name: props.modalItem.name,
-            description: props.modalItem.description,
-        })
-    }, [props.modalItem])
 
 
     function save() {
-        props.update(form)
+        props.create(form)
+        modalClose()
     }
 
     function modalClose() {
@@ -35,7 +27,7 @@ const ModalComponent = (props) => {
         <div className={rootClasses.join(' ')}>
             <div className={cl.modal__content}>
                 <div className={cl.modal__header}>
-                    <div className={cl.modal__title}>Запись {props.modalItem.name}</div>
+                    <div className={cl.modal__title}>Создать запись</div>
                     <div className={cl.modal__close} onClick={modalClose}>X</div>
                 </div>
                 <form className="create-form">

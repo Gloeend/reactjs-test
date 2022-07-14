@@ -1,0 +1,5 @@
+.create-form {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+}

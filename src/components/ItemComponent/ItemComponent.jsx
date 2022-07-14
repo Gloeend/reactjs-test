@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './ItemComponent.css';
+import {Link} from "react-router-dom";
 
 const ItemComponent = (props) => {
-    function openModal() {
-        props.openModal(props.id)
-    }
 
     return (
         <div className="case">
@@ -15,7 +13,7 @@ const ItemComponent = (props) => {
                 <div className="case__description">
                     {props.item.description}
                 </div>
-                <div className="button button--edit" onClick={openModal}>Перейти</div>
+                <Link className="button button--edit" to={"/view?item="+props.id}>Перейти</Link>
             </div>
         </div>
     );
